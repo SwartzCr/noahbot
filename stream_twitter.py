@@ -13,7 +13,7 @@ class TweetStreamer(TwythonStreamer):
 def do_twitter(data):
     twitter = auth()
     if data['user']['screen_name'] == "pomological":
-        if 'grape' in data['text']:
+        if 'grape ' in data['text']:
             twitter.retweet(id=data['id'])
 
 def auth():
