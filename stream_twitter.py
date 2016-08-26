@@ -14,7 +14,20 @@ def do_twitter(data):
     twitter = auth()
     if data['user']['screen_name'] == "pomological":
         if 'grapes' in data['text']:
-            twitter.retweet(id=data['id'])
+            retweet(twitter, data)
+    if data['user']['screen_name'].lower() == "tinydungeons":
+        if not random.randrange(0,30):
+            retweet(twitter, data)
+    if data['user']['screen_name'].lower() == "hard_to_yelp":
+        if not random.randrange(0,30):
+            retweet(twitter, data)
+    if not random.randrange(0,1000):
+        retweet(twitter, data)
+    if not random.randrange(0,1000):
+        twitter.create_favorite(id=data['id'])
+
+def retweet(twitter, data):
+    twitter.retweet(id=data['id'])
 
 def auth():
     with open("access.json", 'r') as f:
