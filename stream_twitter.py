@@ -21,6 +21,9 @@ def do_twitter(data):
     if data['user']['screen_name'].lower() == "hard_to_yelp":
         if not random.randrange(0,30):
             retweet(twitter, data)
+    if data['user']['screen_name'] == 'hintline':
+        if not ramdom.randrange(0, 30):
+            retweet(twitter, data)
     if not random.randrange(0,1000):
         retweet(twitter, data)
     if not random.randrange(0,1000):
