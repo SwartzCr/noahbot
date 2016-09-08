@@ -23,7 +23,7 @@ def do_twitter(data):
         if not random.randrange(0,30):
             retweet(twitter, data)
     if data['user']['screen_name'] == 'hintline':
-        if not ramdom.randrange(0, 30):
+        if not random.randrange(0, 30):
             retweet(twitter, data)
     if not random.randrange(0,1000):
         retweet(twitter, data)
