@@ -26,6 +26,9 @@ def do_twitter(data):
         if not random.randrange(0, 30):
             retweet(twitter, data)
     if data['user']['screen_name'] == 'xor':
+        if 'retweeted_status' in data.keys():
+            if not data['retweeted_status']['user']['screen_name'] =='xor':
+                return
         if not random.randrange(0, 100):
             twitter.update_status(status="@xor parker", in_reply_to_status_id=data['id'])
     if data['in_reply_to_screen_name'] == "swartzcr":
