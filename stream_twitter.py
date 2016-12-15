@@ -17,13 +17,16 @@ def do_twitter(data):
         if 'grapes' in data['text']:
             retweet(twitter, data)
     if data['user']['screen_name'].lower() == "tinydungeons":
+        if not random.randrange(0,50):
+            retweet(twitter, data)
+    if data['user']['screen_name'].lower() == "nice_domains":
         if not random.randrange(0,30):
             retweet(twitter, data)
     if data['user']['screen_name'].lower() == "hard_to_yelp":
-        if not random.randrange(0,30):
+        if not random.randrange(0,50):
             retweet(twitter, data)
     if data['user']['screen_name'] == 'hintline':
-        if not random.randrange(0, 30):
+        if not random.randrange(0, 100):
             retweet(twitter, data)
     if data['user']['screen_name'] == 'xor':
         if 'retweeted_status' in data.keys():
