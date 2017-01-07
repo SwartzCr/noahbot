@@ -20,10 +20,10 @@ def do_twitter(data):
         if not random.randrange(0,50):
             retweet(twitter, data)
     if data['user']['screen_name'].lower() == "nice_domains":
-        if not random.randrange(0,30):
+        if not random.randrange(0,40):
             retweet(twitter, data)
     if data['user']['screen_name'].lower() == "hard_to_yelp":
-        if not random.randrange(0,50):
+        if not random.randrange(0,70):
             retweet(twitter, data)
     if data['user']['screen_name'] == 'hintline':
         if not random.randrange(0, 100):
