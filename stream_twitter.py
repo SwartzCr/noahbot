@@ -34,6 +34,8 @@ def do_twitter(data):
                 return
         if not random.randrange(0, 100):
             twitter.update_status(status="@xor parker", in_reply_to_status_id=data['id'])
+    if "quinoa" in data['text'].lower():
+        retweet(twitter, data)
     if data['in_reply_to_screen_name'] == "swartzcr":
         if not random.randrange(0,5):
             twitter.update_status(status="@{0} oh hi!".format(data['user']['screen_name']))
