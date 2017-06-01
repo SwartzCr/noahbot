@@ -36,10 +36,17 @@ def do_twitter(data):
             twitter.update_status(status="@xor parker", in_reply_to_status_id=data['id'])
     if "quinoa" in data['text'].lower():
         retweet(twitter, data)
+    if ["yo"] == [txt for txt in data['text'].split() if not txt.startswith("@")]:
+        reply_to = [txt for txt in data['text'].split() if txt.startswith("@")]
+        reply_to.remove("@SwartzCr")
+        instigator = data["user"]["screen_name"]
+        reply_to.append("@{0}".format(instigator))
+        message = " ".join(reply_to)
+        message += " yo"
+        twitter.update_status(status=message, in_reply_to_status_id=data['id'])
     if data['in_reply_to_screen_name'] == "swartzcr":
         if not random.randrange(0,5):
             twitter.update_status(status="@{0} oh hi!".format(data['user']['screen_name']))
-
         elif not random.randrange(0,10):
             twitter.update_status(status="@{0} hmmmmm".format(data['user']['screen_name']))
     if not random.randrange(0,1000):
