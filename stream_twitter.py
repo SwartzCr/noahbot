@@ -36,7 +36,7 @@ def do_twitter(data):
             twitter.update_status(status="@xor parker", in_reply_to_status_id=data['id'])
     if "quinoa" in data['text'].lower():
         retweet(twitter, data)
-    if ["yo"] == [txt for txt in data['text'].split() if not txt.startswith("@")]:
+    if ["yo"] == [txt.lower() for txt in data['text'].split() if not txt.startswith("@")]:
         reply_to = [txt for txt in data['text'].split() if txt.startswith("@")]
         reply_to.remove("@SwartzCr")
         instigator = data["user"]["screen_name"]
