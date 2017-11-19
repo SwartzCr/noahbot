@@ -17,17 +17,17 @@ def do_twitter(data):
         if 'grapes' in data['text']:
             retweet(twitter, data)
     if data['user']['screen_name'].lower() == "tinydungeons":
-        if not random.randrange(0,50):
+        if not random.randrange(0,100):
             retweet(twitter, data)
-    if data['user']['screen_name'].lower() == "nice_domains":
-        if not random.randrange(0,40):
-            retweet(twitter, data)
+    #if data['user']['screen_name'].lower() == "nice_domains":
+    #    if not random.randrange(0,40):
+    #        retweet(twitter, data)
     if data['user']['screen_name'].lower() == "hard_to_yelp":
         if not random.randrange(0,70):
             retweet(twitter, data)
-    if data['user']['screen_name'] == 'hintline':
-        if not random.randrange(0, 100):
-            retweet(twitter, data)
+    #if data['user']['screen_name'] == 'hintline':
+    #    if not random.randrange(0, 100):
+    #        retweet(twitter, data)
     if data['user']['screen_name'] == 'xor':
         if 'retweeted_status' in data.keys():
             if not data['retweeted_status']['user']['screen_name'] =='xor':
@@ -36,22 +36,22 @@ def do_twitter(data):
             twitter.update_status(status="@xor parker", in_reply_to_status_id=data['id'])
     if "quinoa" in data['text'].lower():
         retweet(twitter, data)
-    if ["yo"] == [txt.lower() for txt in data['text'].split() if not txt.startswith("@")]:
-        reply_to = [txt for txt in data['text'].split() if txt.startswith("@")]
-        reply_to.remove("@SwartzCr")
-        instigator = data["user"]["screen_name"]
-        reply_to.append("@{0}".format(instigator))
-        message = " ".join(reply_to)
-        message += " yo"
-        twitter.update_status(status=message, in_reply_to_status_id=data['id'])
-    if data['in_reply_to_screen_name'] == "swartzcr":
-        if not random.randrange(0,5):
+    if data['in_reply_to_screen_name'].lower() == "swartzcr":
+        if ["yo"] == [txt.lower() for txt in data['text'].split() if not txt.startswith("@")]:
+            reply_to = [txt for txt in data['text'].split() if txt.startswith("@")]
+            reply_to.remove("@SwartzCr")
+            instigator = data["user"]["screen_name"]
+            reply_to.append("@{0}".format(instigator))
+            message = " ".join(reply_to)
+            message += " yo"
+            twitter.update_status(status=message, in_reply_to_status_id=data['id'])
+        elif not random.randrange(0,5):
             twitter.update_status(status="@{0} oh hi!".format(data['user']['screen_name']))
         elif not random.randrange(0,10):
             twitter.update_status(status="@{0} hmmmmm".format(data['user']['screen_name']))
-    if not random.randrange(0,1000):
+    if not random.randrange(0,2000):
         retweet(twitter, data)
-    if not random.randrange(0,1000):
+    if not random.randrange(0,2000):
         twitter.create_favorite(id=data['id'])
 
 def retweet(twitter, data):
