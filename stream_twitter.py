@@ -45,10 +45,10 @@ def do_twitter(data):
             message = " ".join(reply_to)
             message += " yo"
             twitter.update_status(status=message, in_reply_to_status_id=data['id'])
-        elif not random.randrange(0,5):
-            twitter.update_status(status="@{0} oh hi!".format(data['user']['screen_name']))
-        elif not random.randrange(0,10):
-            twitter.update_status(status="@{0} hmmmmm".format(data['user']['screen_name']))
+       # elif not random.randrange(0,5):
+       #     twitter.update_status(status="@{0} oh hi!".format(data['user']['screen_name']))
+       # elif not random.randrange(0,10):
+       #     twitter.update_status(status="@{0} hmmmmm".format(data['user']['screen_name']))
     if not random.randrange(0,2000):
         retweet(twitter, data)
     if not random.randrange(0,2000):
